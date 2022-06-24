@@ -19,10 +19,8 @@ public class ValueController {
 
     @GetMapping("values/{value}")
     public ResponseEntity<String> values(@PathVariable String value) {
-    	for(int i=0; i<10000;i++) {
-    		  log.info("Sending value {} to topic", i);
-    	        streamBridge.send("values-topic", i);
-    	}
+    		  log.info("Sending value {} to topic", value);
+    	        streamBridge.send("values-topic", value);
         return ResponseEntity.ok("ok");
     }
 }
